@@ -16,6 +16,16 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 LOG = sys.argv[1] if len(sys.argv) > 1 else "/tmp/boot.log"
 
+HEADER = (
+    "DRPL backend: still starting, or failed to start.\n"
+    "This is the container's boot log.\n"
+)
+# Built as its own expression on purpose. Adjacent string literals concatenate
+# before `*` binds, so writing the banner as `"a\n" "b\n" "=" * 60` repeats the
+# whole banner sixty times instead of the "=" -- which is what the first
+# deploy of this file did, burying the traceback it exists to show.
+SEPARATOR = "=" * 60
+
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -23,12 +33,8 @@ class Handler(BaseHTTPRequestHandler):
             with open(LOG, "r", encoding="utf-8", errors="replace") as fh:
                 body = fh.read()
         except OSError as exc:
-            body = f"(no boot log yet: {exc})"
-        payload = (
-            "DRPL backend: still starting, or failed to start.\n"
-            "This is the container's boot log.\n"
-            "=" * 60 + "\n" + body
-        ).encode("utf-8", "replace")
+            body = "(no boot log yet: %s)" % exc
+        payload = (HEADER + SEPARATOR + "\n" + body).encode("utf-8", "replace")
         self.send_response(503)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.send_header("Content-Length", str(len(payload)))
