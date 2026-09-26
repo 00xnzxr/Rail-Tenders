@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark navy outer circle -->
+  <circle cx="50" cy="50" r="50" fill="#1C2B3A"/>
+  <!-- Orange/coral outer arc shape -->
+  <circle cx="62" cy="50" r="36" fill="#E8612A"/>
+  <!-- Dark navy inner circle (creates the crescent/swoosh) -->
+  <circle cx="56" cy="50" r="24" fill="#1C2B3A"/>
+  <!-- Small orange tip at top -->
+  <circle cx="50" cy="18" r="6" fill="#E8612A"/>
+</svg>

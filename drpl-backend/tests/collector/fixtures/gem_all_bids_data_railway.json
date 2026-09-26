@@ -1,0 +1,826 @@
+{
+ "status": 1,
+ "code": 200,
+ "message": "Bid result",
+ "response": {
+  "response": {
+   "numFound": 1770,
+   "start": 0,
+   "numFoundExact": true,
+   "docs": [
+    {
+     "id": "9867670",
+     "b_id": [
+      9867670
+     ],
+     "b_bid_number": [
+      "GEM/2026/R/731434"
+     ],
+     "b_category_name": [
+      "Repair, Maintenance, and Installation of Plant/ Systems/Equipments (Version 2) - Manufacturing Unit"
+     ],
+     "b_total_quantity": [
+      1
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      2
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      1
+     ],
+     "b_bid_to_ra": [
+      1
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-10T12:00:00Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-11T12:00:00Z"
+     ],
+     "bd_category_name": [
+      "Repair, Maintenance, and Installation of Plant/ Systems/Equipments (Version 2) - Manufacturing Unit; Value based Annual Rate Contract of Railway Track Maintenance in Railway Yard at RCF, Trombay Unit AS PER SOW AND NIT; AS PER SOW AND NIT"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "b_bid_number_parent": [
+      "GEM/2026/B/7894893"
+     ],
+     "b_id_parent": [
+      9729969
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "ra_b_status": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "ra_b_buyer_status": [
+      2
+     ],
+     "b_cat_id": [
+      "services_home_repa_re22373363"
+     ],
+     "b.b_created_by": [
+      "RCF_TR_CC35"
+     ],
+     "ba_is_single_packet": [
+      0
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Chemicals and Fertilizers"
+     ],
+     "ba_official_details_deptName": [
+      "Department of Fertilizers"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9871543",
+     "b_id": [
+      9871543
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8018061"
+     ],
+     "b_category_name": [
+      "XLPE Cable for Working Voltage up to and Including 1.1 KV Marked To IS 7098 (Part 1)"
+     ],
+     "b_total_quantity": [
+      3000
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-10T10:24:05Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-24T11:00:00Z"
+     ],
+     "bd_category_name": [
+      "XLPE Cable for Working Voltage up to and Including 1.1 KV Marked To IS 7098 (Part 1)"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_powe_elec_elec_xl32325872"
+     ],
+     "b.b_created_by": [
+      "SRDMMFZR"
+     ],
+     "ba_is_single_packet": [
+      1
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9835437",
+     "b_id": [
+      9835437
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/7986389"
+     ],
+     "b_category_name": [
+      "XLPE Cable for Working Voltage up to and Including 1.1 KV Marked To IS 7098 (Part 1)"
+     ],
+     "b_total_quantity": [
+      2000
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-10T10:09:19Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-21T09:00:00Z"
+     ],
+     "bd_category_name": [
+      "XLPE Cable for Working Voltage up to and Including 1.1 KV Marked To IS 7098 (Part 1)"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_powe_elec_elec_xl32325872"
+     ],
+     "b.b_created_by": [
+      "ammgkpd"
+     ],
+     "ba_is_single_packet": [
+      1
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9871240",
+     "b_id": [
+      9871240
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8017782"
+     ],
+     "b_category_name": [
+      "Toner Cartridges / Ink Cartridges / Consumables for Printers,Toner Cartridges / Ink Cartridges / Co"
+     ],
+     "b_total_quantity": [
+      18
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      4
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-10T09:59:49Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-21T10:00:00Z"
+     ],
+     "bd_category_name": [
+      "Toner Cartridges / Ink Cartridges / Consumables for Printers,Toner Cartridges / Ink Cartridges / Consumables for Printers,Toner Cartridges / Ink Cartridges / Consumables for Printers,Toner Cartridges / Ink Cartridges / Consumables for Printers"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_offi_offi_prin_tone"
+     ],
+     "b.b_created_by": [
+      "os1hqgrc"
+     ],
+     "ba_is_single_packet": [
+      1
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9872693",
+     "b_id": [
+      9872693
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8019081"
+     ],
+     "b_category_name": [
+      "Hand - Operated Chain Pulley Block (V2) as per IS 3832"
+     ],
+     "b_total_quantity": [
+      2
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T22:51:50Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-21T10:00:00Z"
+     ],
+     "bd_category_name": [
+      "Hand - Operated Chain Pulley Block (V2) as per IS 3832"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_mate_mate_lift_ha67720716"
+     ],
+     "b.b_created_by": [
+      "ADMMRTM"
+     ],
+     "ba_is_single_packet": [
+      1
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9872569",
+     "b_id": [
+      9872569
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8018970"
+     ],
+     "b_category_name": [
+      "Custom Bid for Services - Housekeepinang messing arrangement, washing of linen and  maintence of La"
+     ],
+     "b_total_quantity": [
+      1
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      1
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T21:51:22Z"
+     ],
+     "final_end_date_sort": [
+      "2026-10-01T09:00:00Z"
+     ],
+     "bd_category_name": [
+      "Custom Bid for Services - Housekeepinang messing arrangement, washing of linen and  maintence of Lawns and Gardens of Train Managers Running Room at CNB  for 02  years"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      true
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "services_home_cust"
+     ],
+     "b.b_created_by": [
+      "srdomcopryj"
+     ],
+     "ba_is_single_packet": [
+      0
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9863734",
+     "b_id": [
+      9863734
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8011076"
+     ],
+     "b_category_name": [
+      "Air Circulator Type Electric Fan and Regulator (V2) Conforming To IS 2997"
+     ],
+     "b_total_quantity": [
+      60
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T20:44:12Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-19T21:00:00Z"
+     ],
+     "bd_category_name": [
+      "Air Circulator Type Electric Fan and Regulator (V2) Conforming To IS 2997"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_dist_heat_ai35355600_airc"
+     ],
+     "b.b_created_by": [
+      "osup7blw"
+     ],
+     "ba_is_single_packet": [
+      0
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9872072",
+     "b_id": [
+      9872072
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8018538"
+     ],
+     "b_category_name": [
+      "LED Luminaire For Road And Street Lights Conforming To IS 10322 (Part 5/Section 3) (V3) (Under BIS "
+     ],
+     "b_total_quantity": [
+      75
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      0
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T20:41:41Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-19T19:00:00Z"
+     ],
+     "bd_category_name": [
+      "LED Luminaire For Road And Street Lights Conforming To IS 10322 (Part 5/Section 3) (V3) (Under BIS Scheme - II)"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "home_el05420327_ligh_exte_le13704051"
+     ],
+     "b.b_created_by": [
+      "osup7blw"
+     ],
+     "ba_is_single_packet": [
+      0
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9872503",
+     "b_id": [
+      9872503
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8018915"
+     ],
+     "b_category_name": [
+      "Goods Transportation service - Monthly Based Service - Outside state; Railway TRD Material and Staf"
+     ],
+     "b_total_quantity": [
+      2
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      1
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T20:37:49Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-23T15:00:00Z"
+     ],
+     "bd_category_name": [
+      "Goods Transportation service - Monthly Based Service - Outside state; Railway TRD Material and Staff; 4 MT Loading Capacity"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "services_home_good_go02585026"
+     ],
+     "b.b_created_by": [
+      "sdeetdjhs"
+     ],
+     "ba_is_single_packet": [
+      0
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    },
+    {
+     "id": "9872276",
+     "b_id": [
+      9872276
+     ],
+     "b_bid_number": [
+      "GEM/2026/B/8018722"
+     ],
+     "b_category_name": [
+      "Manpower Outsourcing Services - Fixed Remuneration - ATTENDANT; Multi-tasking Staff; High School"
+     ],
+     "b_total_quantity": [
+      1
+     ],
+     "b_status": [
+      1
+     ],
+     "b_bid_type": [
+      1
+     ],
+     "b_is_bunch": [
+      1
+     ],
+     "b_type": [
+      1
+     ],
+     "b_bid_to_ra": [
+      0
+     ],
+     "b_buyer_status": [
+      0
+     ],
+     "b_eval_type": [
+      0
+     ],
+     "final_start_date_sort": [
+      "2026-09-09T19:58:33Z"
+     ],
+     "final_end_date_sort": [
+      "2026-09-21T20:00:00Z"
+     ],
+     "bd_category_name": [
+      "Manpower Outsourcing Services - Fixed Remuneration - ATTENDANT; Multi-tasking Staff; High School"
+     ],
+     "b_is_custom_item": [
+      0
+     ],
+     "is_high_value": [
+      false
+     ],
+     "b_ra_to_bid": [
+      1
+     ],
+     "b_is_inactive": [
+      0
+     ],
+     "b_cat_id": [
+      "services_home_manp_ma44130178"
+     ],
+     "b.b_created_by": [
+      "srdenestate@dhn1"
+     ],
+     "ba_is_single_packet": [
+      1
+     ],
+     "ba_is_global_tendering": [
+      0
+     ],
+     "is_rc_bid": [
+      0
+     ],
+     "ba_official_details_minName": [
+      "Ministry of Railways"
+     ],
+     "ba_official_details_deptName": [
+      "Indian Railways"
+     ],
+     "bid_schedule": [],
+     "parent_bid_schedule": []
+    }
+   ]
+  }
+ }
+}

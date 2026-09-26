@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens (shadcn-style HSL CSS variables) ──────────────────
+   Calm professional "Trust & Authority" palette: navy primary, one blue
+   accent, slate neutrals. Authored light + dark together so every token
+   has a correct value in both themes. Components must use the semantic
+   Tailwind tokens (bg-background, text-foreground, …) — never raw hex —
+   so dark mode works automatically. */
+@layer base {
+  :root {
+    --background: 210 24% 97%;          /* cool neutral canvas */
+    --foreground: 222 47% 11%;          /* slate-900 #0F172A */
+
+    --card: 0 0% 100%;                  /* white */
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;             /* navy  #0F172A */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 27%;           /* slate-700 #334155 */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 201 96% 32%;              /* blue  #0369A1 — the one confident accent */
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 214 32% 91%;               /* slate-200-ish #E2E8F0 */
+    --muted-foreground: 215 16% 47%;    /* slate-500 #64748B */
+
+    --border: 214 32% 91%;              /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 201 96% 32%;                /* focus ring = accent */
+
+    --destructive: 0 72% 51%;           /* red-600 #DC2626 */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;             /* emerald-500 */
+    --warning: 38 92% 50%;              /* amber-500 */
+
+    --radius: 0.875rem;                 /* friendly, card-led geometry */
+  }
+
+  .dark {
+    --background: 222 47% 7%;           /* deep navy-black #0A0F1A */
+    --foreground: 210 40% 96%;          /* near-white slate */
+
+    --card: 222 40% 11%;               /* #121826 */
+    --card-foreground: 210 40% 96%;
+    --popover: 222 40% 11%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 210 40% 96%;            /* in dark, primary surfaces invert to light */
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 215 20% 65%;
+    --secondary-foreground: 222 47% 11%;
+
+    --accent: 199 89% 56%;             /* lighter blue #38BDF8 for dark-mode contrast */
+    --accent-foreground: 222 47% 11%;
+
+    --muted: 217 33% 18%;              /* #1E293B */
+    --muted-foreground: 215 20% 65%;   /* slate-400 */
+
+    --border: 217 33% 20%;
+    --input: 217 33% 22%;
+    --ring: 199 89% 56%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 69% 58%;
+    --warning: 38 92% 60%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system,
+      BlinkMacSystemFont, sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Respect reduced-motion globally — disable non-essential animation. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── Prose table styling (token-driven so dark mode works) ──────────── */
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.prose thead tr {
+  background-color: hsl(var(--muted));
+  border-bottom: 2px solid hsl(var(--border));
+}
+
+.prose th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  white-space: nowrap;
+}
+
+.prose td {
+  padding: 7px 12px;
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  vertical-align: top;
+}
+
+.prose tr:nth-child(even) {
+  background-color: hsl(var(--muted) / 0.4);
+}
+
+.prose tr:hover {
+  background-color: hsl(var(--muted) / 0.6);
+}
+
+/* Overflow wrapper for wide tables */
+.prose-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--border));
+  margin: 0.75rem 0;
+}
+
+.prose-table-wrap table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.prose-table-wrap th,
+.prose-table-wrap td {
+  border-left: none;
+  border-right: none;
+}
+
+.prose-table-wrap th:not(:last-child),
+.prose-table-wrap td:not(:last-child) {
+  border-right: 1px solid hsl(var(--border));
+}
+
+/* ── Artifact button animations ─────────────────────────────────── */
+@keyframes fade-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gentle-pop {
+  0% { opacity: 0; transform: scale(0.97); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.18s ease-out both;
+}
+
+.animate-page-enter {
+  animation: page-enter 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-gentle-pop {
+  animation: gentle-pop 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Shared interaction language for legacy and modern screens. */
+button,
+a,
+[role='button'] {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button:not(:disabled):active,
+[role='button']:not([aria-disabled='true']):active {
+  transform: scale(0.985);
+}
+
+input,
+select,
+textarea {
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: hsl(var(--ring) / 0.65);
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.12);
+}
+
+/* Stagger children with delay */
+.animate-fade-slide-up:nth-child(2) { animation-delay: 0.06s; }
+.animate-fade-slide-up:nth-child(3) { animation-delay: 0.12s; }
+
+/* Smooth scrollbar (token-driven) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--border));
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.5);
+}

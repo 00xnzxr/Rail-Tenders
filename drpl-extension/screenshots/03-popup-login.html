@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Screenshot 3 — Popup (Sign In)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  body { width: 1280px; height: 800px; overflow: hidden; background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 96px; color: #1e293b; }
+  .copy { max-width: 540px; }
+  .copy h1 { font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; color: #0f172a; }
+  .copy h1 .accent { color: #c2410c; }
+  .copy p { font-size: 18px; line-height: 1.6; color: #334155; margin-bottom: 16px; }
+  .copy ul { list-style: none; margin-top: 24px; }
+  .copy li { font-size: 15px; color: #334155; padding: 8px 0 8px 32px; position: relative; line-height: 1.5; }
+  .copy li::before { content: '✓'; position: absolute; left: 0; top: 8px; color: #f97316; font-weight: 700; font-size: 18px; line-height: 1; }
+
+  .popup { width: 380px; background: #f8fafc; border-radius: 16px; box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25); overflow: hidden; }
+  .popup-header { background: #fff; border-bottom: 1px solid #f1f5f9; padding: 12px 16px; display: flex; align-items: center; }
+  .popup-header .logo { display: flex; align-items: center; gap: 8px; }
+  .popup-header .logo img { width: 28px; height: 28px; border-radius: 6px; }
+  .popup-header .logo span { font-size: 14px; font-weight: 600; color: #334155; }
+  .popup-status { background: #fef3c7; color: #b45309; border-bottom: 1px solid #fde68a; padding: 6px 16px; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #f59e0b; }
+  .popup-body { padding: 24px 20px; }
+  .signin-head { text-align: center; margin-bottom: 24px; }
+  .signin-head img { width: 48px; height: 48px; border-radius: 10px; margin-bottom: 12px; }
+  .signin-head h2 { font-size: 14px; font-weight: 600; color: #1e293b; }
+  .signin-head p { font-size: 11px; color: #94a3b8; margin-top: 4px; line-height: 1.5; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .field input { width: 100%; padding: 9px 12px; font-size: 13px; color: #1e293b; border: 1px solid #e2e8f0; border-radius: 8px; background: #fff; }
+  .field input::placeholder { color: #94a3b8; }
+  .field input:focus { outline: none; border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+  .advanced-toggle { font-size: 11px; color: #94a3b8; font-weight: 500; margin-bottom: 16px; display: inline-block; }
+  .btn-submit { width: 100%; padding: 10px; background: #2563eb; color: #fff; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <h1>Your data, your <span class="accent">backend</span>, your control.</h1>
+    <p>Sign in with the credentials your workspace administrator gave you. The auth token stays on this device — no third-party services, no telemetry, no analytics.</p>
+    <ul>
+      <li>JWT tokens stored locally in chrome.storage.local</li>
+      <li>All captured data goes only to your configured backend URL</li>
+      <li>Logout from the popup clears the token instantly</li>
+    </ul>
+  </div>
+
+  <div class="popup">
+    <div class="popup-header">
+      <div class="logo">
+        <img src="../public/icons/icon-128.png" alt="" />
+        <span>Workflow Companion</span>
+      </div>
+    </div>
+    <div class="popup-status"><span class="dot"></span>Not connected — login required</div>
+    <div class="popup-body">
+      <div class="signin-head">
+        <img src="../public/icons/icon-128.png" alt="" />
+        <h2>Sign in</h2>
+        <p>Use your workspace credentials to connect this extension.</p>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" value="admin@workspace.example" readonly />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" value="••••••••••••" readonly />
+      </div>
+      <div class="advanced-toggle">▸ Advanced settings</div>
+      <button class="btn-submit">Sign In</button>
+    </div>
+  </div>
+</body>
+</html>

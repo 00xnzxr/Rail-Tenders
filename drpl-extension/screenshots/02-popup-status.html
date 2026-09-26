@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Screenshot 2 — Popup (Status)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  body { width: 1280px; height: 800px; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 96px; color: #fff; }
+  .copy { max-width: 540px; }
+  .copy h1 { font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+  .copy h1 .accent { color: #f97316; }
+  .copy p { font-size: 18px; line-height: 1.6; color: #cbd5e1; margin-bottom: 16px; }
+  .stat-row { display: flex; gap: 16px; margin-top: 28px; }
+  .stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px; min-width: 140px; }
+  .stat .num { font-size: 28px; font-weight: 700; color: #f97316; }
+  .stat .lbl { font-size: 11px; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+
+  .popup { width: 380px; background: #f8fafc; border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); overflow: hidden; }
+  .popup-header { background: #fff; border-bottom: 1px solid #f1f5f9; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .popup-header .logo { display: flex; align-items: center; gap: 8px; }
+  .popup-header .logo img { width: 28px; height: 28px; border-radius: 6px; }
+  .popup-header .logo span { font-size: 14px; font-weight: 600; color: #334155; }
+  .popup-header .nav { display: flex; gap: 4px; }
+  .popup-header .nav button { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; border: none; cursor: pointer; }
+  .popup-header .nav .active { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .popup-header .nav .inactive { background: transparent; color: #64748b; }
+  .popup-status { background: #ecfdf5; color: #047857; border-bottom: 1px solid #d1fae5; padding: 6px 16px; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; }
+  .popup-body { padding: 16px; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .stat-card { background: #fff; border: 1px solid #f1f5f9; border-radius: 12px; padding: 12px; }
+  .stat-card .v { font-size: 22px; font-weight: 700; color: #1e293b; }
+  .stat-card .l { font-size: 10px; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
+  .section-label { font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .session { background: #fff; border: 1px solid #f1f5f9; border-radius: 8px; padding: 8px 12px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+  .session .left { display: flex; align-items: center; gap: 8px; }
+  .session .portal { font-size: 11px; font-weight: 700; color: #334155; letter-spacing: 0.05em; text-transform: uppercase; }
+  .session .when { font-size: 10px; color: #94a3b8; }
+  .session .right { display: flex; gap: 8px; align-items: center; }
+  .session .count { font-size: 10px; color: #64748b; font-weight: 500; }
+  .badge { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+  .badge.synced { background: #ecfdf5; color: #059669; }
+  .badge.uploading { background: #fef3c7; color: #b45309; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <h1>Live <span class="accent">sync history</span> at a glance.</h1>
+    <p>Every captured batch is logged. See which portal, how many items, and whether the upload to your workspace finished — without leaving the popup.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">128</div><div class="lbl">Items synced today</div></div>
+      <div class="stat"><div class="num">6 min</div><div class="lbl">Last sync</div></div>
+    </div>
+  </div>
+
+  <div class="popup">
+    <div class="popup-header">
+      <div class="logo">
+        <img src="../public/icons/icon-128.png" alt="" />
+        <span>Workflow Companion</span>
+      </div>
+      <div class="nav">
+        <button class="active">Status</button>
+        <button class="inactive">Settings</button>
+      </div>
+    </div>
+    <div class="popup-status"><span class="dot"></span>Connected — admin@workspace.example</div>
+    <div class="popup-body">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="v">3</div><div class="l">Pending Upload</div></div>
+        <div class="stat-card"><div class="v">6m ago</div><div class="l">Last Sync</div></div>
+      </div>
+      <div class="section-label">Recent Sessions</div>
+      <div class="session">
+        <div class="left"><span class="portal">Portal A</span><span class="when">6m ago</span></div>
+        <div class="right"><span class="count">42 items</span><span class="badge synced">synced</span></div>
+      </div>
+      <div class="session">
+        <div class="left"><span class="portal">Portal B</span><span class="when">22m ago</span></div>
+        <div class="right"><span class="count">68 items</span><span class="badge synced">synced</span></div>
+      </div>
+      <div class="session">
+        <div class="left"><span class="portal">Portal A</span><span class="when">1h ago</span></div>
+        <div class="right"><span class="count">18 items</span><span class="badge synced">synced</span></div>
+      </div>
+      <div class="session">
+        <div class="left"><span class="portal">Aggregator 1</span><span class="when">3h ago</span></div>
+        <div class="right"><span class="count">14 items</span><span class="badge uploading">uploading</span></div>
+      </div>
+      <div class="session">
+        <div class="left"><span class="portal">Portal B</span><span class="when">5h ago</span></div>
+        <div class="right"><span class="count">52 items</span><span class="badge synced">synced</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

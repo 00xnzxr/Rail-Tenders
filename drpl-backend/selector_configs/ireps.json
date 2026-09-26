@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "portal": "ireps",
+  "lastUpdated": "2026-03-14T00:00:00Z",
+  "note": "Update this file when IREPS changes its UI. The extension fetches this on startup.",
+  "fields": {
+    "tenderNumber": "td.tender-no, [data-field='tenderNo']",
+    "title": "td.tender-title, [data-field='tenderTitle']",
+    "railwayZone": "td.zone, [data-field='zone']",
+    "department": "td.dept, [data-field='department']",
+    "description": ".tender-scope, #scopeOfWork",
+    "estimatedValue": "td.est-value, [data-field='estimatedValue']",
+    "openingDate": "td.opening-date, [data-field='openDate']",
+    "closingDate": "td.closing-date, [data-field='closeDate']",
+    "emdAmount": "td.emd, [data-field='emd']",
+    "preBidDate": "td.prebid-date, [data-field='preBidDate']",
+    "status": "td.status, [data-field='status']",
+    "documentLinks": "a.doc-link, a[href*='.pdf'], a.nit-link"
+  },
+  "pagination": {
+    "nextButton": "a.next-page, #nextPageLink, a[title='Next']",
+    "pageInfo": ".pagination-info, #pageInfo"
+  }
+}

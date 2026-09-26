@@ -1,0 +1,53 @@
+# DRPL backend as a Vercel container service.
+#
+# Same base as the Railway Dockerfile -- WeasyPrint, Tesseract, poppler and
+# LibreOffice are all real runtime dependencies, which is the whole reason this
+# runs as a container rather than a Python function.
+#
+# Two differences from Dockerfile:
+#
+#   * it listens on $PORT, which Vercel assigns, instead of a fixed 8080;
+#   * it carries its own redis-server and RQ worker. Railway gave those their
+#     own services; here there is one container, and without them the GeM
+#     collector's queue has nowhere to go (app/api/routes/collect.py enqueues
+#     by queue name and 503s when Redis is absent) and every agent run falls
+#     back to blocking the HTTP request for its whole duration.
+#
+# It also carries a Postgres, used only when DATABASE_URL is unset. That is a
+# demo convenience, not a design: the container's disk dies with the container,
+# so set DATABASE_URL to a managed Postgres for anything whose data has to
+# outlive a redeploy. SQLite is deliberately not the fallback -- uvicorn runs
+# multiple workers alongside the RQ worker processes, and concurrent writers on
+# one SQLite file produce "database is locked" rather than a slow demo.
+FROM python:3.11-slim-bookworm
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libglib2.0-0 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libpangoft2-1.0-0 \
+    libgdk-pixbuf2.0-0 \
+    libffi-dev \
+    libcairo2 \
+    libharfbuzz0b \
+    tesseract-ocr \
+    poppler-utils \
+    libreoffice-calc \
+    redis-server \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN mkdir -p /app/uploads/generated_docs /app/logs
+
+# Vercel routes to $PORT; 8080 is only the fallback for a plain `docker run`.
+ENV PORT=8080
+ENV PYTHONUNBUFFERED=1
+
+RUN chmod +x /app/start-vercel.sh
+CMD ["/app/start-vercel.sh"]

@@ -1,0 +1,107 @@
+<!--
+  A stand-in for one IREPS "Tender Search Results" page.
+
+  Hand-built rather than saved, because the real page is behind a login. The
+  parts that matter for the parser are reproduced faithfully and are the parts
+  that were observed on the live portal:
+
+    * the results table is NOT the first table on the page -- a filter summary
+      table sits above it, which is exactly what defeats "grab table[0]"
+    * header cells carry the words, not useful class names
+    * the title cell clips its visible text and keeps the full value in title=
+    * a decoy layout table wraps everything
+
+  If this fixture stops matching the live page, that is drift and the fix is to
+  re-save it, not to loosen the parser.
+-->
+<html>
+<body>
+<table class="layout" width="100%">
+<tr><td>
+
+  <table id="searchSummary" class="tbl">
+    <tr><th>Work Area</th><th>Organisation</th><th>Department</th></tr>
+    <tr><td>Works</td><td>Indian Railway</td><td>Electrical</td></tr>
+  </table>
+
+  <br/>
+  <span class="hdr">Tender Search Results 4</span>
+
+  <table id="resultTable" class="tbl" cellspacing="0">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Tender No</th>
+        <th>Tender Title</th>
+        <th>Deptt.</th>
+        <th>Railway</th>
+        <th>Tender Value (Rs.)</th>
+        <th>EMD</th>
+        <th>Opening Date</th>
+        <th>Closing Date &amp; Time</th>
+        <th>Status</th>
+        <th>Docs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>12212090</td>
+        <td><a href="/epsn/tenderDetail.do?id=12212090"
+               title="Supply of Traction Motor Bearings for WAP-7 locomotives at ELS Ghaziabad Tender Type: Open">Supply of Traction Motor Bearings for WAP-7 loco......</a></td>
+        <td>Electrical</td>
+        <td>Northern Railway</td>
+        <td>1,25,45,000.00</td>
+        <td>2,50,900.00</td>
+        <td>02/09/2026</td>
+        <td>24/09/2026 15:00</td>
+        <td>Open</td>
+        <td><a href="/epsn/viewNit.do?id=12212090&amp;doc=nit">NIT</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>09232145</td>
+        <td><a href="/epsn/tenderDetail.do?id=09232145"
+               title="AMC of Air Conditioning plant at Divisional Office Tender Type: Limited">AMC of Air Conditioning plant at Divisional......</a></td>
+        <td>Mechanical</td>
+        <td>Western Railway</td>
+        <td>85,00,000.00</td>
+        <td>1,70,000.00</td>
+        <td>05/09/2026</td>
+        <td>30/09/2026 14:30</td>
+        <td>Open</td>
+        <td><a href="/epsn/downloadDoc.do?id=09232145">Tender Doc.pdf</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>77451003</td>
+        <td>Overhauling of bogie frames -- Carriage Repair Workshop</td>
+        <td>Mechanical</td>
+        <td>South Central Railway</td>
+        <td></td>
+        <td></td>
+        <td>08/09/2026</td>
+        <td>02/10/2026 11:00</td>
+        <td>Open</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>66120088</td>
+        <td>Supply of XLPE cables to IS 7098</td>
+        <td>Electrical</td>
+        <td>Eastern Railway</td>
+        <td>44,20,000.00</td>
+        <td>88,400.00</td>
+        <td>09/09/2026</td>
+        <td>07/10/2026 12:00</td>
+        <td>Open</td>
+        <td><a href="/epsn/viewNit.do?id=66120088&amp;doc=nit">NIT</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</td></tr>
+</table>
+</body>
+</html>

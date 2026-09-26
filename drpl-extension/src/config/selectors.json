@@ -1,0 +1,117 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-04-30T00:00:00Z",
+  "portals": {
+    "ireps": {
+      "pageDetection": {
+        "tenderListing": {
+          "urlPattern": "/epsn/web/login/eTender",
+          "indicator": "table.tender-list, #tenderListTable"
+        },
+        "tenderDetail": {
+          "urlPattern": "/epsn/web/login/eTender/tenderDetail",
+          "indicator": "#tenderDetailDiv, .tender-detail-container"
+        },
+        "searchResults": {
+          "urlPattern": "/epsn/web/login/searchTender",
+          "indicator": "#searchResultTable"
+        },
+        "bidStatus": {
+          "urlPattern": "/epsn/web/login/bidStatus",
+          "indicator": "#bidStatusTable"
+        }
+      },
+      "fields": {
+        "tenderNumber": "td.tender-no, [data-field='tenderNo']",
+        "title": "td.tender-title, [data-field='tenderTitle']",
+        "railwayZone": "td.zone, [data-field='zone']",
+        "department": "td.dept, [data-field='department']",
+        "description": ".tender-scope, #scopeOfWork",
+        "estimatedValue": "td.est-value, [data-field='estimatedValue']",
+        "openingDate": "td.opening-date, [data-field='openDate']",
+        "closingDate": "td.closing-date, [data-field='closeDate']",
+        "emdAmount": "td.emd, [data-field='emd']",
+        "preBidDate": "td.prebid-date, [data-field='preBidDate']",
+        "status": "td.status, [data-field='status']",
+        "documentLinks": "a.doc-link, a[href*='.pdf'], a.nit-link"
+      },
+      "eligibility": {
+        "imageSrcPatterns": [
+          "blue_arrow",
+          "blue_tick",
+          "bluearrow",
+          "bluetick",
+          "eligible",
+          "tickmark",
+          "/icons/right",
+          "tick.png",
+          "tick.gif",
+          "submit_for_approval",
+          "icon_submit",
+          "arrow_right",
+          "right_arrow",
+          "apply",
+          "bid_arrow",
+          "arrow.gif",
+          "arrow.png",
+          "forward",
+          "eligible_arrow"
+        ],
+        "cssClassFragments": [
+          "blue-tick",
+          "eligible-row",
+          "is-eligible",
+          "tender-eligible",
+          "blueArrow",
+          "arrow-blue",
+          "eligibleArrow"
+        ],
+        "colorHexList": ["#1e90ff", "#0066cc", "#0d6efd", "#1976d2", "#2196f3"],
+        "ariaLabelPatterns": ["eligible", "tender eligible", "you can bid", "apply", "bid now"]
+      },
+      "pagination": {
+        "nextButton": "a.next-page, #nextPageLink, a[title='Next']",
+        "pageInfo": ".pagination-info, #pageInfo",
+        "totalRecords": "#totalRecords, .total-count"
+      },
+      "sessionIndicators": {
+        "loggedIn": "#logoutBtn, .user-info, #userName",
+        "expired": ".login-form, #loginPage, [action*='login']"
+      }
+    },
+    "gem": {
+      "pageDetection": {
+        "bidListing": {
+          "urlPattern": "/bidding/bid/bid-search",
+          "indicator": "[class*='bid-list'], [class*='BidList']"
+        },
+        "bidDetail": {
+          "urlPattern": "/bidding/bid/bid-detail",
+          "indicator": "[class*='bid-detail'], [class*='BidDetail']"
+        },
+        "sellerDashboard": {
+          "urlPattern": "/seller/dashboard",
+          "indicator": "[class*='dashboard'], [class*='Dashboard']"
+        }
+      },
+      "fields": {
+        "bidNumber": "[class*='bid-no'], [data-bid-id]",
+        "buyerOrg": "[class*='buyer-org'], [class*='BuyerName']",
+        "category": "[class*='category'], [class*='Category']",
+        "productSpecs": "[class*='product-spec'], [class*='ItemDesc']",
+        "quantity": "[class*='quantity'], [class*='Qty']",
+        "bidStartDate": "[class*='start-date'], [class*='StartDate']",
+        "bidEndDate": "[class*='end-date'], [class*='EndDate']",
+        "eligibility": "[class*='eligibility'], [class*='Criteria']"
+      },
+      "pagination": {
+        "nextButton": "[class*='next'], button[aria-label='Next']",
+        "pageInfo": "[class*='page-info']"
+      },
+      "sessionIndicators": {
+        "loggedIn": "[class*='user-profile'], [class*='logout']",
+        "expired": "[class*='login-form'], [href*='login']"
+      }
+    }
+  }
+}

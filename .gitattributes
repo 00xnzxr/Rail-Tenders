@@ -1,0 +1,8 @@
+# Anything the Linux container executes must keep LF endings regardless of the
+# checkout platform. core.autocrlf=true on Windows rewrites these on checkout,
+# and a start script with CRLF fails as `/bin/sh^M: bad interpreter` inside the
+# image -- a build that succeeds and a container that never starts.
+*.sh text eol=lf
+Dockerfile text eol=lf
+Dockerfile.* text eol=lf
+*.json text eol=lf

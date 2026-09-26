@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" fill="none">
+  <!-- Dots arc pattern on left side -->
+  <!-- Row 1 - top (red) -->
+  <circle cx="14" cy="9" r="4.5" fill="#D32F2F"/>
+  <circle cx="26" cy="5" r="4" fill="#E53935"/>
+
+  <!-- Row 2 - upper middle (red-orange) -->
+  <circle cx="7" cy="21" r="4.5" fill="#E53935"/>
+  <circle cx="18" cy="18" r="3.5" fill="#EF5350"/>
+
+  <!-- Row 3 - middle (orange) -->
+  <circle cx="6" cy="34" r="4" fill="#FF7043"/>
+  <circle cx="17" cy="30" r="3.5" fill="#FF7043"/>
+
+  <!-- Row 4 - lower middle (amber) -->
+  <circle cx="10" cy="46" r="4" fill="#FFB300"/>
+  <circle cx="22" cy="43" r="3.5" fill="#FFC107"/>
+
+  <!-- Row 5 - bottom (yellow/gold) -->
+  <circle cx="20" cy="56" r="3.5" fill="#FDD835"/>
+  <circle cx="32" cy="53" r="3" fill="#FFEE58"/>
+
+  <!-- DRPL text -->
+  <text
+    x="44"
+    y="44"
+    font-family="'Inter', 'Segoe UI', Arial, sans-serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="-0.5"
+    fill="#1B5E20"
+  >DRPL</text>
+</svg>

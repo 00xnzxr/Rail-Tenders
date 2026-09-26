@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "827f1156-7745-4cbf-a883-840f0c2b2d0b",
+      "baselineDraftId": "37a2d2ed-a16a-4a45-a380-940e8883b994",
+      "activeDraftId": "626ba7c1-5c1b-4048-8e8b-61c5a48b7afb",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "52438c3c-6b67-4755-b60a-d077f5d72bc1",
+        "drpl-frontend-public-drpl-logo.svg"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "drpl-frontend-public-drpl-logo.svg",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/827f1156-7745-4cbf-a883-840f0c2b2d0b/brand-assets/drpl-frontend-public-drpl-logo.svg/drpl-logo.svg",
+          "sourcePath": "drpl-frontend/public/drpl-logo.svg"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        ".superdesign/init/theme.md",
+        "drpl-frontend/src/index.css",
+        "drpl-frontend/src/pages/DashboardPage.tsx",
+        "docs/design/home-experience-brief.md",
+        "drpl-frontend/src/components/assistant/GlobalAssistant.tsx",
+        "drpl-frontend/src/hooks/usePageContext.ts",
+        "drpl-frontend/src/lib/assistant.ts",
+        "docs/design/assistant-experience-brief.md"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "ab1e67854602a89b4834b1489bbe7a3c809ee4010d968eeadde9fdcdbbe28519",
+        ".superdesign/init/theme.md": "7b95a34967eb5b924accd5abe82a1eb321183bc2551ab0172ae5636190dbb5eb",
+        "drpl-frontend/src/index.css": "cb6fe003f087977b80478a0376338ea2346d9e5a906df5cc24ba20ffd308c854",
+        "drpl-frontend/src/pages/DashboardPage.tsx": "1286c8dfcbb34aec0909c5a856300c8fbea25fa21eb9fa893e4fc44d6277a019",
+        "docs/design/home-experience-brief.md": "4b7c52d74163ef19b166a2fc0ded7d80f7543ad927fb35597b7f77101e73ca82",
+        "drpl-frontend/src/components/assistant/GlobalAssistant.tsx": "fa862dea6df0ec8ae521331ade15c176b4e8f193e51b8758cd5a8bbd91e206a3",
+        "drpl-frontend/src/hooks/usePageContext.ts": "c9c4ea58b4c82bb270f1e685829c72dd4894b907cb2ea5f63dcfe56dafadff03",
+        "drpl-frontend/src/lib/assistant.ts": "e89d65c9d9d81b4b5a0e8e8255a41a64f230a5dbdf43d6da29fefd22187ed878",
+        "docs/design/assistant-experience-brief.md": "0ef5f94d64cdf241a8804eb8d1e818b51769176c4aca4d4df6c836b45db998dd"
+      },
+      "components": [
+        {
+          "name": "AppSidebar",
+          "id": "7ed8ecdf-34f8-409c-a207-4535ef10c827",
+          "sourcePath": "drpl-frontend/src/components/layout/Sidebar.tsx",
+          "logoAssetKey": "drpl-frontend-public-drpl-logo.svg"
+        },
+        {
+          "name": "GlobalHeader",
+          "id": "c670297b-3298-4b2b-8c84-660132f93075",
+          "sourcePath": "drpl-frontend/src/components/layout/Header.tsx"
+        }
+      ],
+      "drafts": {
+        "37a2d2ed-a16a-4a45-a380-940e8883b994": {
+          "title": "DRPL Home baseline",
+          "visualDirection": "faithful pre-redesign baseline"
+        },
+        "626ba7c1-5c1b-4048-8e8b-61c5a48b7afb": {
+          "title": "DRPL Dashboard - Redesign",
+          "visualDirection": "compact daily tender desk with visible, friendly working assistant",
+          "parentDraftId": "37a2d2ed-a16a-4a45-a380-940e8883b994",
+          "currentVersion": 2
+        }
+      },
+      "updatedAt": "2026-09-02T12:38:20+05:30"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "DRPL - Tender Intelligence Platform",
+  "short_name": "DRPL",
+  "description": "AI-powered Tender Intelligence Platform",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#1C2B3A",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

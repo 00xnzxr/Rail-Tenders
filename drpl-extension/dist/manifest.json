@@ -1,0 +1,99 @@
+{
+  "manifest_version": 3,
+  "name": "Workflow Companion",
+  "version": "2.1.3",
+  "description": "Sync structured page data from supported portals to your authenticated workspace.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://ireps.gov.in/*",
+    "https://*.ireps.gov.in/*",
+    "https://gem.gov.in/*",
+    "https://*.gem.gov.in/*",
+    "https://mkp.gem.gov.in/*",
+    "https://tendertiger.com/*",
+    "https://*.tendertiger.com/*",
+    "https://bidassist.com/*",
+    "https://*.bidassist.com/*",
+    "https://tenderdetail.com/*",
+    "https://*.tenderdetail.com/*",
+    "https://tendersinfo.com/*",
+    "https://*.tendersinfo.com/*",
+    "https://projectstoday.com/*",
+    "https://*.projectstoday.com/*",
+    "https://drpl-platform-production.up.railway.app/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ireps.gov.in/*",
+        "https://*.ireps.gov.in/*"
+      ],
+      "js": [
+        "content-scripts/ireps.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://gem.gov.in/*",
+        "https://*.gem.gov.in/*",
+        "https://mkp.gem.gov.in/*"
+      ],
+      "js": [
+        "content-scripts/gem.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://tendertiger.com/*",
+        "https://www.tendertiger.com/*",
+        "https://bidassist.com/*",
+        "https://www.bidassist.com/*",
+        "https://tenderdetail.com/*",
+        "https://www.tenderdetail.com/*",
+        "https://tendersinfo.com/*",
+        "https://www.tendersinfo.com/*",
+        "https://projectstoday.com/*",
+        "https://www.projectstoday.com/*"
+      ],
+      "js": [
+        "content-scripts/aggregators.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config/selectors.json"
+      ],
+      "matches": [
+        "https://ireps.gov.in/*",
+        "https://gem.gov.in/*"
+      ]
+    }
+  ]
+}

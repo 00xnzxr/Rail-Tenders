@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Screenshot 1 — Popup (Keyword Panel)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  body { width: 1280px; height: 800px; overflow: hidden; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 96px; color: #fff; }
+  .copy { max-width: 540px; }
+  .copy h1 { font-size: 44px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+  .copy h1 .accent { color: #f97316; }
+  .copy p { font-size: 18px; line-height: 1.6; color: #cbd5e1; margin-bottom: 16px; }
+  .copy ul { list-style: none; margin-top: 24px; }
+  .copy li { font-size: 15px; color: #e2e8f0; padding: 6px 0 6px 28px; position: relative; }
+  .copy li::before { content: '→'; position: absolute; left: 0; color: #f97316; font-weight: 700; }
+
+  /* Popup mock */
+  .popup { width: 380px; background: #f8fafc; border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.45); overflow: hidden; }
+  .popup-header { background: #fff; border-bottom: 1px solid #f1f5f9; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .popup-header .logo { display: flex; align-items: center; gap: 8px; }
+  .popup-header .logo img { width: 28px; height: 28px; border-radius: 6px; }
+  .popup-header .logo span { font-size: 14px; font-weight: 600; color: #334155; }
+  .popup-header .nav { display: flex; gap: 4px; }
+  .popup-header .nav button { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; border: none; cursor: pointer; }
+  .popup-header .nav .active { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .popup-header .nav .inactive { background: transparent; color: #64748b; }
+  .popup-status { background: #ecfdf5; color: #047857; border-bottom: 1px solid #d1fae5; padding: 6px 16px; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; }
+  .popup-body { padding: 16px; }
+  .section-label { font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .btn { padding: 8px; font-size: 11px; font-weight: 600; border: none; border-radius: 8px; color: #fff; cursor: pointer; }
+  .btn-blue { background: #2563eb; }
+  .btn-indigo { background: #4f46e5; }
+  .keyword-list { background: #fff; border: 1px solid #f1f5f9; border-radius: 8px; overflow: hidden; }
+  .keyword-list-header { background: #f8fafc; padding: 6px 12px; display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; }
+  .keyword-list-header span { font-size: 10px; font-weight: 600; color: #64748b; letter-spacing: 0.06em; text-transform: uppercase; }
+  .keyword-list-header a { font-size: 10px; color: #64748b; text-decoration: none; }
+  .keyword-row { padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f8fafc; }
+  .keyword-row:last-child { border-bottom: none; }
+  .keyword-row .kw { font-size: 11px; font-weight: 600; color: #334155; }
+  .keyword-row .group { font-size: 10px; color: #94a3b8; }
+  .keyword-row .stats { font-size: 10px; color: #64748b; text-align: right; }
+  .keyword-row .stats b { color: #2563eb; font-weight: 700; }
+  .footer-note { font-size: 10px; color: #94a3b8; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <h1>One-click <span class="accent">scope-driven</span> sync.</h1>
+    <p>Define your keyword groups once. The extension iterates each one across your supported portals and ships the results to your workspace, tagged for downstream filtering.</p>
+    <ul>
+      <li>Keyword auto-search across paginated results</li>
+      <li>Eligibility-flagged items only</li>
+      <li>Per-keyword run stats</li>
+    </ul>
+  </div>
+
+  <div class="popup">
+    <div class="popup-header">
+      <div class="logo">
+        <img src="../public/icons/icon-128.png" alt="" />
+        <span>Workflow Companion</span>
+      </div>
+      <div class="nav">
+        <button class="active">Status</button>
+        <button class="inactive">Settings</button>
+      </div>
+    </div>
+    <div class="popup-status">
+      <span class="dot"></span>
+      Connected — admin@workspace.example
+    </div>
+    <div class="popup-body">
+      <div class="section-label">Scope-Driven Sync</div>
+      <div class="btn-row">
+        <button class="btn btn-blue">Run Auto-Search</button>
+        <button class="btn btn-indigo">Scan Eligible Items</button>
+      </div>
+      <div class="keyword-list">
+        <div class="keyword-list-header">
+          <span>Keywords (8)</span>
+          <a href="#">Refresh</a>
+        </div>
+        <div class="keyword-row"><div><div class="kw">AMC</div><div class="group">Maintenance Services</div></div><div class="stats"><b>34</b> hits · 3p</div></div>
+        <div class="keyword-row"><div><div class="kw">Comprehensive Maintenance</div><div class="group">Maintenance Services</div></div><div class="stats"><b>12</b> hits · 2p</div></div>
+        <div class="keyword-row"><div><div class="kw">bogie</div><div class="group">Mechanical Spares</div></div><div class="stats"><b>8</b> hits · 1p</div></div>
+        <div class="keyword-row"><div><div class="kw">brake</div><div class="group">Mechanical Spares</div></div><div class="stats"><b>21</b> hits · 2p</div></div>
+        <div class="keyword-row"><div><div class="kw">compressor</div><div class="group">Mechanical Spares</div></div><div class="stats"><b>5</b> hits · 1p</div></div>
+        <div class="keyword-row"><div><div class="kw">traction motor</div><div class="group">Electrical</div></div><div class="stats" style="color:#cbd5e1">never run</div></div>
+      </div>
+      <div class="footer-note">Hits below 60% relevance are hidden in the dashboard.</div>
+    </div>
+  </div>
+</body>
+</html>
