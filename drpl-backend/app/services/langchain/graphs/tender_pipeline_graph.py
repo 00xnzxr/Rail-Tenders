@@ -304,8 +304,56 @@ async def research_costing_node(state: TenderPipelineState, db: Session) -> dict
             user_id=state.get("user_id"),
         )
 
+        costing = result.get("costing") or {}
+
+        # Persist the breakdown, exactly as the chat path does.
+        #
+        # Without this the pipeline computed a full priced BOQ, handed it back as
+        # pipeline state, wrote a read-only artifact -- and left
+        # GET /tenders/{id}/cost-breakdown answering "No cost breakdown for this
+        # tender yet". So running the Costing step left the Costing tab empty,
+        # and the numbers could not be edited or re-exported to XLSX.
+        #
+        # The batched strategy saves its own breakdown (deterministic NIT
+        # skeleton + per-batch rate merges), so honour its flag rather than
+        # writing a duplicate version. See run_costing_batched_node and the
+        # matching branch in chat_agent_wrappers.
+        cost_breakdown_id = None
+        if costing.get("_already_persisted"):
+            cost_breakdown_id = costing.get("cost_breakdown_id")
+        elif costing.get("line_items"):
+            try:
+                from app.services.cost_breakdown_service import persist_from_agent_output
+
+                _is_component = bool(costing.get("_component_mode"))
+                persisted = persist_from_agent_output(
+                    db=db,
+                    tender_id=tender_id,
+                    costing=costing,
+                    created_by_agent="costing_researcher",
+                    skip_nit_validation=_is_component,
+                    cost_sheet_template="client_annexure" if _is_component else None,
+                )
+                if persisted:
+                    cost_breakdown_id = persisted.id
+            except Exception as persist_exc:  # noqa: BLE001
+                # The costing itself succeeded; report it rather than losing the
+                # whole step to a save failure.
+                logger.error(
+                    "Cost breakdown persistence failed for tender %s: %s: %s",
+                    tender_id, type(persist_exc).__name__, persist_exc,
+                    exc_info=True,
+                )
+                try:
+                    db.rollback()
+                except Exception:
+                    pass
+
+        if cost_breakdown_id:
+            costing = {**costing, "cost_breakdown_id": cost_breakdown_id}
+
         return {
-            "costing_data": result.get("costing", {}),
+            "costing_data": costing,
             "current_step": "research_costing",
             "completed_steps": ["research_costing"],
         }
