@@ -76,6 +76,13 @@ fi
 (
     python -m app.seed          >>"$BOOT_LOG" 2>&1 || log "WARNING: app.seed failed"
     python scripts/seed_demo.py >>"$BOOT_LOG" 2>&1 || log "WARNING: seed_demo failed"
+    # Sample tenders, so the list, funnel and dashboard have content on a fresh
+    # database. Seeded per instance on purpose: the platform may run several
+    # containers, each with its own local Postgres, and a fixed random seed
+    # means every one of them holds the identical set rather than a different
+    # one. Every row is marked 'drpl-demo-seed' -- see the script's docstring
+    # for the one statement that removes them all.
+    python scripts/seed_demo_tenders.py >>"$BOOT_LOG" 2>&1 || log "WARNING: seed_demo_tenders failed"
     log "seeding done; starting RQ worker (concurrency=${WORKER_CONCURRENCY})"
     python worker.py >>"$BOOT_LOG" 2>&1
 ) &

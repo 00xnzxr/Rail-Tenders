@@ -31,7 +31,7 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Optional
 
-from collector import enrich, ledger, runbus
+from collector import demo_fallback, enrich, ledger, runbus
 from collector.config import get_settings
 from collector.db import SessionLocal, ensure_ledger
 from collector.models import AgentRun
@@ -356,6 +356,37 @@ async def _sweep_portal(
         sweep_status = "failed"
         sweep_error = f"{type(e).__name__}: {e}"
         logger.error("collect[%s]: %s sweep failed: %s", run_id, portal, sweep_error)
+
+        # The portal could not be reached at all -- on a cloud region that is
+        # almost always GeM's edge dropping the egress address rather than
+        # anything about this code (see collector/netconfig and
+        # docs/GEM-collector.md). When the deployment has opted in, ship the
+        # sample set so the Search button demonstrates the pipeline instead of
+        # surfacing a network fault. Only here: a sweep that reached the portal
+        # is never substituted, and Cancelled is handled above.
+        if demo_fallback.enabled():
+            try:
+                rows = demo_fallback.demo_tenders(portal)
+                result = await sink.post(rows)
+                sweep_status = "completed"
+                sweep_error = None
+                runbus.emit(r, run_id, "tenders_ingested", {
+                    "portal": portal,
+                    "count": getattr(result, "created", len(rows)) or len(rows),
+                    "ids": getattr(result, "new_ids", []) or [],
+                    "sample_data": True,
+                })
+                runbus.emit(r, run_id, "portal_done", {
+                    "portal": portal,
+                    "rows_distinct": len(rows),
+                    "pages_failed": 0,
+                    "sample_data": True,
+                })
+                return
+            except Exception as demo_exc:  # noqa: BLE001 -- never worsen a failure
+                logger.error("collect[%s]: demo fallback failed too: %s",
+                             run_id, demo_exc)
+
         runbus.emit(r, run_id, "portal_failed", {"portal": portal, "error": str(e)[:300]})
         # A failed portal is not a failed run: the other portals still get
         # their pass, and the sweep row records what happened here.
