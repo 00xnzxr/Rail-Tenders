@@ -271,7 +271,5 @@ def format_user_error(error: Exception) -> str:
     import os as _os
 
     if (_os.environ.get("SHOW_ERROR_DETAIL") or "").strip().lower() in ("1", "true", "yes"):
-        return f"{generic}
-
-[detail] {error_class}: {error_str[:900]}"
+        return generic + "\n\n[detail] " + error_class + ": " + error_str[:900]
     return generic
