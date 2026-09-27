@@ -252,6 +252,30 @@ async def generate_documents_node(state: TenderPipelineState, db: Session) -> di
     return result
 
 
+def _should_run_costing(analysis_result: dict) -> bool:
+    """True when the costing step has enough to work from.
+
+    An empty `requirements` block means one of two very different things, and
+    treating them the same is what made the Costing step vanish on every tender
+    with no attached NIT: either the analysis read the documents and genuinely
+    found no financial or technical requirements (skipping is right), or the
+    analysis never ran at all -- no PDFs on the tender, or it errored -- in
+    which case skipping hides the step for a reason that has nothing to do with
+    the tender's cost.
+
+    The costing agent loads the tender row itself (title, scope, category,
+    estimated value), so in the second case it still has something real to
+    price. So: skip only on a successful analysis that listed no requirements.
+    """
+    analysis_result = analysis_result or {}
+    if analysis_result.get("error") or not analysis_result:
+        return True
+    requirements = analysis_result.get("requirements") or {}
+    if requirements.get("financial") or requirements.get("technical_specs"):
+        return True
+    return False
+
+
 async def research_costing_node(state: TenderPipelineState, db: Session) -> dict:
     """Step 4: Research and calculate costing."""
     tender_id = state["tender_id"]
@@ -263,7 +287,7 @@ async def research_costing_node(state: TenderPipelineState, db: Session) -> dict
     financial = requirements.get("financial", [])
     technical = requirements.get("technical_specs", [])
 
-    if not financial and not technical:
+    if not financial and not technical and not _should_run_costing(analysis_result):
         return {
             "costing_data": {"note": "No costing requirements identified in tender analysis"},
             "current_step": "research_costing",
@@ -326,9 +350,7 @@ def build_tender_pipeline(db: Session):
 
     # Conditional edge: skip costing if no financial requirements
     def should_do_costing(state):
-        analysis = state.get("analysis_result", {})
-        reqs = analysis.get("requirements", {})
-        if reqs.get("financial") or reqs.get("technical_specs"):
+        if _should_run_costing(state.get("analysis_result", {})):
             return "research_costing"
         return END
 
