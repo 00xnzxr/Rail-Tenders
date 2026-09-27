@@ -261,4 +261,17 @@ def format_user_error(error: Exception) -> str:
 
     # --- Generic fallback — hide raw details ---
     logger.warning(f"Unclassified error shown to user: {error_class}: {error_str[:200]}")
-    return "Something went wrong while processing your request. Please try again."
+    generic = "Something went wrong while processing your request. Please try again."
+    # One escape hatch, off by default. An unclassified error is by definition
+    # one nobody anticipated, and on a deployment whose logs are unreachable
+    # (Vercel's runtime-log API answers 403 for this project) the generic
+    # sentence is all there is -- which makes the first unclassified failure
+    # undiagnosable. SHOW_ERROR_DETAIL=1 appends the class and message so it can
+    # be read once and classified properly; leave it unset in front of users.
+    import os as _os
+
+    if (_os.environ.get("SHOW_ERROR_DETAIL") or "").strip().lower() in ("1", "true", "yes"):
+        return f"{generic}
+
+[detail] {error_class}: {error_str[:900]}"
+    return generic
