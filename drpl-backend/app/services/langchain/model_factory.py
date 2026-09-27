@@ -122,6 +122,22 @@ def _create_openai(
     if temperature is not None and supports_sampling_params(model):
         chat_kwargs["temperature"] = temperature
 
+    # Every agent on this platform binds tools, and on Chat Completions the
+    # gpt-5.6 family refuses to do that while a reasoning effort is in play:
+    #
+    #   Function tools with reasoning_effort are not supported for
+    #   gpt-5.6-terra in /v1/chat/completions. To use function tools, use
+    #   /v1/responses or set reasoning_effort to 'none'.
+    #
+    # The effort is applied by default, so OMITTING it does not help -- measured
+    # both ways: 'none' returns the tool call, absent returns the 400. Every
+    # agent rostered onto OpenAI therefore failed before its first token, and
+    # the message named a parameter no DRPL code was setting.
+    if not supports_sampling_params(model) and "reasoning_effort" in getattr(
+        ChatOpenAI, "model_fields", {}
+    ):
+        chat_kwargs["reasoning_effort"] = "none"
+
     # langchain-openai moves some models (gpt-5.x among them) onto the
     # Responses API by itself, and that API stores every request by default.
     # Nothing here chains on a stored response, so keep the tender text out
