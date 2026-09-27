@@ -140,10 +140,20 @@ def _build_failover_or_direct(
         # Single provider — return direct model (no wrapper overhead)
         provider, resolved_model, api_key = chain[0]
 
-        # For non-Anthropic, ensure temperature is set (thinking constraint doesn't apply)
+        # For non-Anthropic, fill in a temperature (the thinking constraint that
+        # blanks it only applies to Claude) -- but NOT for a model that refuses
+        # the parameter. The gpt-5.6 family answers `temperature` with a hard
+        # 400 ("Unsupported parameter"), and `ai_service.NO_SAMPLING_PARAM_MODELS`
+        # already records that. Without this check every agent rostered onto
+        # Terra or Luna failed before its first token, which reads as the model
+        # being unavailable rather than as one illegal field.
+        from app.services.ai_service import supports_sampling_params
+
         temp = temperature
         if provider != "anthropic" and temp is None:
             temp = 0.7
+        if not supports_sampling_params(resolved_model):
+            temp = None
 
         return create_chat_model(
             provider=provider,

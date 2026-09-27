@@ -114,7 +114,12 @@ def _create_openai(
         "max_tokens": clamp_max_tokens(model, max_tokens),
     }
 
-    if temperature is not None:
+    # The gpt-5.6 family rejects `temperature` outright. Checked here as well as
+    # in the caller because this constructor is reachable from several paths and
+    # the failure is a 400 on every call, not a degraded answer.
+    from app.services.ai_service import supports_sampling_params
+
+    if temperature is not None and supports_sampling_params(model):
         chat_kwargs["temperature"] = temperature
 
     # langchain-openai moves some models (gpt-5.x among them) onto the

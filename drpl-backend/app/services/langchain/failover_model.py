@@ -116,10 +116,17 @@ class FailoverChatModel(BaseChatModel):
         model_kwargs = self.claude_kwargs if provider == "anthropic" else None
         extra_headers = self.claude_headers if provider == "anthropic" else None
 
-        # For non-Anthropic providers, always use temperature (thinking constraint doesn't apply)
+        # For non-Anthropic providers fill in a temperature (the thinking
+        # constraint that blanks it is Claude-only) -- unless the model refuses
+        # the parameter. The gpt-5.6 family answers it with a hard 400, so a
+        # chain that fell over to OpenAI would fail on every link.
+        from app.services.ai_service import supports_sampling_params
+
         temperature = self.temperature
         if provider != "anthropic" and temperature is None:
             temperature = 0.7
+        if not supports_sampling_params(model):
+            temperature = None
 
         return create_chat_model(
             provider=provider,
