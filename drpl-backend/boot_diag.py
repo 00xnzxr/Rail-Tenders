@@ -41,6 +41,41 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(payload)
 
+    # Every method, not just GET. BaseHTTPRequestHandler answers an
+    # unimplemented verb with a 501 HTML page, and the platform may route a
+    # POST to an instance that is still booting -- which reached the browser as
+    # "Error response / Unsupported method ('POST')" instead of anything the
+    # SPA could handle. A JSON 503 with Retry-After is at least an answer the
+    # client understands.
+    def do_POST(self):
+        self._busy()
+
+    def do_PUT(self):
+        self._busy()
+
+    def do_PATCH(self):
+        self._busy()
+
+    def do_DELETE(self):
+        self._busy()
+
+    def do_HEAD(self):
+        self.send_response(503)
+        self.send_header("Retry-After", "30")
+        self.end_headers()
+
+    def _busy(self):
+        body = (
+            b'{"detail":"The service is starting up. Please retry in a moment.",'
+            b'"status":"starting"}'
+        )
+        self.send_response(503)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Retry-After", "30")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def log_message(self, *args):
         pass
 
